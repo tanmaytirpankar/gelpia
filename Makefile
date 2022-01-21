@@ -66,3 +66,4 @@ clean-requirements:
 	$(RM) -r requirements/include
 	$(RM) -r requirements/lib
 	$(RM) -r requirements/share
+	$(RM) -r requirements/Sources

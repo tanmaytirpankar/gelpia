@@ -59,6 +59,16 @@ export CFLAGS=" -msse3 "; export CXXFLAGS=" -msse3 -std=c++11";
 make &>> $SCRIPT_LOCATION/log.txt
 make install >> $SCRIPT_LOCATION/log.txt
 
+# dReal
+echo Installing dReal
+# v20.04
+curl -fsSL https://raw.githubusercontent.com/dreal/dreal4/master/setup/ubuntu/20.04/install.sh | sudo bash
+export DREAL_VERSION=4.21.06.2
+
+# Z3
+echo Installing Z3 through apt-get distro
+sudo apt-get install z3
+
 # Cleanup
 cd $SCRIPT_LOCATION
 rm -rf $SOURCE_LOCATION
