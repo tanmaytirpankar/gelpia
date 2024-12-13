@@ -68,6 +68,12 @@ def setup_requirements(git_dir):
     lib_addition = path.join(git_dir, "requirements/lib")
     append_to_environ("LIBRARY_PATH", lib_addition)
 
+    ld_lib_addition = path.join(git_dir, "requirements/lib/rustlib/x86_64-unknown-linux-gnu/lib/")
+    append_to_environ("LD_LIBRARY_PATH", ld_lib_addition)
+
+    lib_addition = path.join(git_dir, "/requirements/lib/rustlib/x86_64-unknown-linux-gnu/lib/")
+    append_to_environ("LIBRARY_PATH", lib_addition)
+
     c_inc_addition = path.join(git_dir, "requirements/include")
     append_to_environ("C_INCLUDE_PATH", c_inc_addition)
 

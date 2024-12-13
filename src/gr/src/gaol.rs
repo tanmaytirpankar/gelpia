@@ -267,7 +267,8 @@ impl GI {
         let mut result = GI{data: gaol_int{data: CInterval::new()}};
         let mut success = 1 as i8;
         unsafe {
-            make_interval_s(CString::new(x).unwrap().as_ptr(), &mut result.data, &mut success)
+            let cs = CString::new(x).unwrap();
+            make_interval_s(cs.as_ptr(), &mut result.data, &mut success)
         };
         if success == 1{
             Ok(result)
@@ -287,8 +288,10 @@ impl GI {
         let mut result = GI{data: gaol_int{data: CInterval::new()}};
         let mut success = 1 as i8;
         unsafe {
-            make_interval_ss(CString::new(inf).unwrap().as_ptr(),
-                             CString::new(sup).unwrap().as_ptr(),
+            let csi = CString::new(inf).unwrap();
+            let css = CString::new(sup).unwrap();
+            make_interval_ss(csi.as_ptr(),
+                             css.as_ptr(),
                              &mut result.data, &mut success)
         };
         if success == 1 {
